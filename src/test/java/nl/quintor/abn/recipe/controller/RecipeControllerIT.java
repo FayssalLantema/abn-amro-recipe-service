@@ -46,7 +46,7 @@ class RecipeControllerIT {
     }
 
     @Test
-    @DisplayName("Get all recipes from a specific person based on search paramaters vegetarian")
+    @DisplayName("Get all recipes from a specific person based on search parameters vegetarian")
     void givenPersonIdandParameters_whenCallingGetAllRecipes_thenReturnRecipes() {
         //Given
         HttpHeaders headers = new HttpHeaders();
@@ -66,7 +66,7 @@ class RecipeControllerIT {
     }
 
     @Test
-    @DisplayName("Get all recipes from a specific person based on multiple search paramaters")
+    @DisplayName("Get all recipes from a specific person based on multiple search parameters")
     void givenPersonIdandMultipleParameters_whenCallingGetAllRecipes_thenReturnRecipes() {
         //Given
         HttpHeaders headers = new HttpHeaders();
