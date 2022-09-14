@@ -1,4 +1,4 @@
-# ABN Amro Recipe Service
+# Recipe Service
 
 The Recipe Service is made for ABN Amro for the BE-Assessment
 
