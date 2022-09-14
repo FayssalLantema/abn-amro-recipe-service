@@ -46,6 +46,47 @@ class RecipeControllerIT {
     }
 
     @Test
+    @DisplayName("Get all recipes from a specific person based on search paramaters vegetarian")
+    void givenPersonIdandParameters_whenCallingGetAllRecipes_thenReturnRecipes() {
+        //Given
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "1");
+        boolean vegetarian = true;
+
+        //When
+        ResponseEntity<RecipeDto[]> response = testRestTemplate.exchange(
+                "http://localhost:" + port + "/api/recipes?vegetarian=" + vegetarian,
+                HttpMethod.GET,
+                new HttpEntity<>(headers),
+                RecipeDto[].class);
+
+        //Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).hasSize(1);
+    }
+
+    @Test
+    @DisplayName("Get all recipes from a specific person based on multiple search paramaters")
+    void givenPersonIdandMultipleParameters_whenCallingGetAllRecipes_thenReturnRecipes() {
+        //Given
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "1");
+        boolean vegetarian = true;
+        int amountOfServings = 3;
+
+        //When
+        ResponseEntity<RecipeDto[]> response = testRestTemplate.exchange(
+                "http://localhost:" + port + "/api/recipes?vegetarian=" + vegetarian + "&amountOfServings=" + amountOfServings,
+                HttpMethod.GET,
+                new HttpEntity<>(headers),
+                RecipeDto[].class);
+
+        //Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).hasSize(1);
+    }
+
+    @Test
     @DisplayName("Create new recipe")
     void givenNameNumberOfServingsAndPersonId_whenCallingCreateRecipe_thenReturnCreatedRecipe() {
         //Given

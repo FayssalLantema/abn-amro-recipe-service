@@ -1,7 +1,7 @@
 INSERT INTO ingredient (name, vegetarian)
 VALUES ('Carrot', true);
 INSERT INTO ingredient (name, vegetarian)
-VALUES ('Corn', false);
+VALUES ('Corn', true);
 INSERT INTO ingredient (name, vegetarian)
 VALUES ('Pumpkin', true);
 INSERT INTO ingredient (name, vegetarian)
@@ -24,6 +24,13 @@ INSERT INTO ingredient (name, vegetarian)
 VALUES ('Artichoke', true);
 INSERT INTO ingredient (name, vegetarian)
 VALUES ('Brussels Sprout', true);
+
+INSERT INTO ingredient (name, vegetarian)
+VALUES ('Meat', false);
+INSERT INTO ingredient (name, vegetarian)
+VALUES ('Chicken', false);
+INSERT INTO ingredient (name, vegetarian)
+VALUES ('Rib Eye', false);
 
 INSERT INTO person (username, password)
 VALUES ('Fayssal', 'Password');

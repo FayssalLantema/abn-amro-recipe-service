@@ -14,7 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -80,28 +82,27 @@ class RecipeServiceTest {
         verify(mockRecipeRepository, times(1)).findById(anyLong());
     }
 
-    //TODO Create Test (Also in Controller Layer more tests)
-//    @Test
-//    @DisplayName("Find all recipes of person")
-//    void GivenPersonId_WhenFindingAllRecipesOfPerson_ThenReturnListOfRecipes() {
-//        //Given
-//        List<Recipe> recipes = new ArrayList<>();
-//        recipes.add(new Recipe("Tomato salsa", 3, person));
-//        recipes.add(new Recipe("Potatoes with vegetables", 2, person));
-//
-//        when(mockPersonService.getById(anyLong()))
-//                .thenReturn(person);
-//
-//        when(mockRecipeRepository.searchAll(anyLong(), any(), any(), any(), any(), anyString()))
-//                .thenReturn(recipes);
-//
-//        //When
-//        List<Recipe> result = recipeService.search(1L, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
-//
-//        //Then
-//        assertThat(result.size()).isEqualTo(2);
-//        assertThat(result).isEqualTo(recipes);
-//    }
+    @Test
+    @DisplayName("Find all recipes of person")
+    void GivenPersonId_WhenFindingAllRecipesOfPerson_ThenReturnListOfRecipes() {
+        //Given
+        List<Recipe> recipes = new ArrayList<>();
+        recipes.add(new Recipe("Tomato salsa", 3, person));
+        recipes.add(new Recipe("Potatoes with vegetables", 2, person));
+
+        when(mockPersonService.getById(anyLong()))
+                .thenReturn(person);
+
+        lenient().when(mockRecipeRepository.searchAll(anyLong(), any(), any(), any(), any(), any()))
+                .thenReturn(recipes);
+
+        //When
+        List<Recipe> result = recipeService.search(1L, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+
+        //Then
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).isEqualTo(recipes);
+    }
 
     @Test
     @DisplayName("Successfully create new recipe")
