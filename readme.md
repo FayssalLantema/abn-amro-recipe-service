@@ -2,6 +2,8 @@
 
 The Recipe Service is made for ABN Amro for the BE-Assessment
 
+The documentation could be found at http://localhost:8080/api/swagger-ui/index.html
+
 ## Features
 
 The service should allow to filter on the following:
