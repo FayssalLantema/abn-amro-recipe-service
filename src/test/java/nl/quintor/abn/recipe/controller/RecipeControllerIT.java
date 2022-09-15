@@ -63,6 +63,7 @@ class RecipeControllerIT {
         //Then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).hasSize(1);
+        assertThat(Objects.requireNonNull(response.getBody())[0].getName()).isEqualTo("Potato with tomato");
     }
 
     @Test
@@ -84,6 +85,7 @@ class RecipeControllerIT {
         //Then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).hasSize(1);
+        assertThat(Objects.requireNonNull(response.getBody())[0].getName()).isEqualTo("Potato with tomato");
     }
 
     @Test

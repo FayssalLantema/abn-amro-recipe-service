@@ -28,8 +28,7 @@ mvn spring-boot:run
 
 ## Architectural decisions
 
-The architecture of the service:
-![Alt text](docs/Domain Model RecipeService.png "Domain Model")
+The architecture of the service can be found at /docs/Domain Model RecipeService.png.
 
 This way a recipe is easily modified, including the according instructions and ingredients. A recipe always belong to
 one user.
@@ -57,7 +56,9 @@ Multiple tools are used for developing the Recipe
 
 - The ID of the person is set in the Authorization header. In order to be production ready this ID has to be set through
   a JWT Bearer token. To do this, Spring Security should be integrated in the service, including a login endpoint.
+- The password should not be stored as plain text.
 - The quality of the code has to be checked, most likely by using a tool like Sonarqube.
 - Instead of the use of an InMemory database, a traditional database should be used.
-- The application should be reviewed by others.
+- The application should be reviewed by others. 
+- The search query should get optimized. This could be achieved by using the JPA Criteria API.
 - Not all flows might be tested. Based on the result of Sonarqube, more tests could be added.
